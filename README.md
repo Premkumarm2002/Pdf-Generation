@@ -35,8 +35,8 @@ This project is a Spring Boot application that provides a REST API for dynamical
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/pdf-generator.git
-   cd pdf-generator
+   git clone https:https://github.com/Premkumarm2002/Pdf-Generation
+   cd Pdf-Generation
    ```
 
 2. Build the project using Maven:
