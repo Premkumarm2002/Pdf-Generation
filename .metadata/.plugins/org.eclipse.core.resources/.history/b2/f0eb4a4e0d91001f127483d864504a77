@@ -1,0 +1,63 @@
+package com.example.pdfgenerator.service;
+
+import com.example.pdfgenerator.model.PdfRequest;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.thymeleaf.spring5.SpringTemplateEngine;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.Collections;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.MockitoAnnotations.openMocks;
+
+@ExtendWith(MockitoExtension.class) // Use Mockito extension
+class PdfServiceTest {
+
+    @Mock
+    private SpringTemplateEngine templateEngine;
+
+    @InjectMocks
+    private PdfService pdfService;
+
+    @BeforeEach
+    void setUp() {
+        openMocks(this); // Initialize mocks
+    }
+
+    @Test
+    void testGeneratePdf() throws IOException {
+        // Prepare the request
+        PdfRequest pdfRequest = new PdfRequest();
+        pdfRequest.setSeller("XYZ Pvt. Ltd.");
+        pdfRequest.setSellerGstin("29AABBCCDD121ZD");
+        pdfRequest.setSellerAddress("New Delhi, India");
+        pdfRequest.setBuyer("Vedant Computers");
+        pdfRequest.setBuyerGstin("29AABBCCDD131ZD");
+        pdfRequest.setBuyerAddress("New Delhi, India");
+        pdfRequest.setItems(Collections.singletonList(new PdfRequest.Item() {{
+            setName("Product 1");
+            setQuantity("12 Nos");
+            setRate(123.00);
+            setAmount(1476.00);
+        }}));
+
+        // Generate PDF
+        String fileName = pdfService.generatePdf(pdfRequest);
+        File generatedFile = new File("./generated-pdfs/" + fileName);
+        
+        // Verify the file is created
+        assertTrue(generatedFile.exists(), "The PDF file should be created.");
+        
+        // Clean up
+        if (generatedFile.exists()) {
+            Files.delete(generatedFile.toPath()); // Delete the generated PDF after the test
+        }
+    }
+}

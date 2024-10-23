@@ -1,0 +1,2 @@
+spring.application.name=PDF-Generator
+pdf.storage.path=./generated-pdfs

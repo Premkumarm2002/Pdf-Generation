@@ -1,0 +1,5 @@
+package com.example.pdfgenerator.controller;
+
+public class PdfController {
+
+}

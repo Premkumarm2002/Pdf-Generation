@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;PDF-Generator/src/main/resources/templates/pdfTemplate.html&apos; to &apos;pdf-template.html&apos;" description="Rename resource &apos;pdfTemplate.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/templates/pdfTemplate.html" name="pdf-template.html" stamp="1729669855377" updateReferences="true"/>
+</session>

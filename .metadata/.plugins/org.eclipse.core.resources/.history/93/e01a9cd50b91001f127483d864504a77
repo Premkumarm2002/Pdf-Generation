@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoice</title>
+    <style>
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Seller</h2>
+        <p th:text="'Name: ' + ${seller}"></p>
+        <p th:text="'Address: ' + ${sellerAddress}"></p>
+        <p th:text="'GSTIN: ' + ${sellerGstin}"></p>
+    </div>
+    <div>
+        <h2>Buyer</h2>
+        <p th:text="'Name: ' + ${buyer}"></p>
+        <p th:text="'Address: ' + ${buyerAddress}"></p>
+        <p th:text="'GSTIN: ' + ${buyerGstin}"></p>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Rate</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item : ${items}">
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.quantity}"></td>
+                <td th:text="${item.rate}"></td>
+                <td th:text="${item.amount}"></td>
+            </tr>
+            <tr>
+                <td colspan="4"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

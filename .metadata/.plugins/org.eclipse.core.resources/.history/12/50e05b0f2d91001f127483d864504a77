@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+        .item{
+			width: 35%;
+            text-align: center;
+		}
+        .qua{
+            width: 20%;
+            text-align: center;
+        }
+        .rate{
+            width: 20%;
+            text-align: center;
+        }
+        .amo{
+            width: 25%;
+            text-align: center;
+        }
+       .sel,.buy{
+            padding-left: 25px;
+            padding-top: 25px;
+            padding-bottom: 30px;
+       }
+       .empty{
+		   padding-bottom: 50px;
+	   }
+       
+       
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td class="sel" colspan="2" style="text-align: left;">
+                Seller:<br>
+                <strong th:text="${pdfRequest.seller}">Seller Name</strong><br>
+                <strong th:text="${pdfRequest.sellerAddress}">Seller Address</strong><br>
+                GSTIN: <strong th:text="${pdfRequest.sellerGstin}">GSTIN</strong>
+            </td>
+            <td class="buy" colspan="2" style="text-align: left;">
+                Buyer:<br>
+                <strong th:text="${pdfRequest.buyer}">Buyer Name</strong><br>
+                <strong th:text="${pdfRequest.buyerAddress}">Buyer Address</strong><br>
+                GSTIN: <strong th:text="${pdfRequest.buyerGstin}">GSTIN</strong>
+            </td>
+        </tr>
+        <tr>
+            <td class="item" colspan="1">Item</td>
+            <td class="qua" colspan="1">Quantity</td>
+            <td class="rate" colspan="1">Rate</td>
+            <td class="amo" colspan="1">Amount</td>
+        </tr>
+        <tr th:each="item : ${pdfRequest.items}">
+            <td class="item" th:text="${item.name}">Item Name</td>
+            <td class="qua" th:text="${item.quantity}">Quantity</td>
+            <td class="rate" th:text="${item.rate}">Rate</td>
+            <td class="amo" th:text="${item.amount}">Amount</td>
+        </tr>
+        <tr>
+            <td class="empty" colspan="4"></td>
+        </tr>
+    </table>
+</body>
+</html>
