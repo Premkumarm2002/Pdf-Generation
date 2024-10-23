@@ -29,7 +29,7 @@ This project is a Spring Boot application that provides a REST API for dynamical
 
 - Java 17 or higher
 - Maven
-- An IDE (e.g., IntelliJ IDEA, Eclipse)
+- An IDE (e.g., Spring tool suite, Eclipse)
 
 ### Installation
 
