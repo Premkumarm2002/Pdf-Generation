@@ -22,30 +22,6 @@ This project is a Spring Boot application that provides a REST API for dynamical
 - **iText**: For PDF generation
 - **Maven**: For dependency management
 
-## Project Structure
-
-```
-pdf-generator/
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── com/
-│   │   │       └── example/
-│   │   │           └── pdfgenerator/
-│   │   │               ├── controller/
-│   │   │               │   └── PdfController.java
-│   │   │               ├── model/
-│   │   │               │   └── PdfRequest.java
-│   │   │               ├── service/
-│   │   │               │   └── PdfService.java
-│   │   │               └── PdfGeneratorApplication.java
-│   │   └── resources/
-│   │       ├── templates/
-│   │       │   └── pdf-template.html
-│   │       └── application.properties
-├── pom.xml
-└── README.md
-```
 
 ## Getting Started
 
